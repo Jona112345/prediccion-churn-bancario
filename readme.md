@@ -5,7 +5,7 @@ Sistema avanzado de Machine Learning para predecir la probabilidad de abandono (
 ## Resultados Principales
 
 - **AUC Score:** 0.8791
-- **Precisión:** 87.5%
+- **Precisión:** 88.06%
 - **Recall:** 81.3%  
 - **F1-Score:** 84.2%
 - **ROI Estimado:** 11,791.5%
