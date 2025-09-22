@@ -1,169 +1,206 @@
 # Predicción de Abandono de Clientes Bancarios
 
-Sistema de Machine Learning para predecir qué clientes bancarios tienen alta probabilidad de cancelar sus servicios, permitiendo implementar estrategias proactivas de retención.
+Sistema avanzado de Machine Learning para predecir la probabilidad de abandono (churn) de clientes bancarios, permitiendo implementar estrategias proactivas de retención y maximizar el valor de la cartera de clientes.
 
-## 🎯 Resultados Principales
+## Resultados Principales
 
-- **AUC Score:** 0.88.06
+- **AUC Score:** 0.8791
 - **Precisión:** 87.5%
-- **Recall:** 81.3%
+- **Recall:** 81.3%  
 - **F1-Score:** 84.2%
 - **ROI Estimado:** 11,791.5%
 - **Beneficio Anual Proyectado:** €1,173,250
+- **Tasa de Detección:** 48.4% de clientes en riesgo identificados correctamente
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
+### Machine Learning
+- **LightGBM** - Algoritmo principal optimizado con GridSearchCV
+- **scikit-learn** - Preprocesamiento, evaluación y validación
+- **pandas & numpy** - Manipulación y análisis de datos
+- **matplotlib & seaborn** - Visualización exploratoria
+
+### Aplicación Web Interactiva  
+- **Streamlit** - Framework de aplicación web
+- **Plotly** - Visualizaciones interactivas avanzadas
+- **Diseño futurista** - Interface moderna con glassmorphism
+
+### Entorno de Desarrollo
 - **Python 3.9+**
-- **LightGBM** - Algoritmo principal de clasificación
-- **scikit-learn** - Preprocesamiento y evaluación
-- **Streamlit** - Aplicación web interactiva
-- **Plotly** - Visualizaciones avanzadas
-- **pandas & numpy** - Manipulación de datos
-- **Jupyter Notebook** - Desarrollo y análisis
+- **Jupyter Notebook** - Análisis y prototipado
+- **Git & GitHub** - Control de versiones
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 prediccion-churn-bancario/
 │
-├── README.md                          # Documentación del proyecto
-├── requirements.txt                   # Dependencias
-├── .gitignore                        # Archivos ignorados por Git
-├── LICENSE                           # Licencia MIT
+├── README.md                                    # Documentación principal
+├── requirements.txt                             # Dependencias del proyecto
+├── .gitignore                                  # Archivos ignorados por Git
+├── LICENSE                                     # Licencia MIT
 │
 ├── data/
-│   └── bank_customer_churn.csv      # Dataset original
+│   └── bank_customer_churn.csv                # Dataset original (10,000 registros)
 │
 ├── notebooks/
-│   └── analisis_churn_bancario.ipynb # Análisis y entrenamiento completo
+│   └── analisis_churn_bancario.ipynb          # Análisis completo y entrenamiento
 │
 ├── models/
-│   ├── modelo_abandono_bancario_20250922.pkl     # Modelo entrenado
-│   └── escalador_caracteristicas_20250922.pkl    # Escalador de features
+│   ├── modelo_abandono_bancario_20250922.pkl  # Modelo LightGBM entrenado
+│   └── escalador_caracteristicas_20250922.pkl # Escalador StandardScaler
 │
 └── deployment/
-    └── app.py                        # Aplicación web Streamlit
+    └── app.py                                  # Aplicación web Streamlit
 ```
 
-## 🚀 Instalación y Uso
+## Instalación y Uso
 
 ### Prerrequisitos
-- Python 3.9+
-- Git
+```bash
+Python 3.9+
+Git
+```
 
-### Instalación
+### Instalación Rápida
 
 ```bash
 # Clonar el repositorio
 git clone https://github.com/Jona112345/prediccion-churn-bancario.git
 cd prediccion-churn-bancario
 
-# Crear entorno virtual
+# Crear y activar entorno virtual
 python -m venv venv
 
-# Activar entorno virtual
-# Windows PowerShell:
+# Windows PowerShell
 .\venv\Scripts\Activate.ps1
-# Windows CMD:
+
+# Windows CMD
 venv\Scripts\activate
-# macOS/Linux:
+
+# macOS/Linux
 source venv/bin/activate
 
 # Instalar dependencias
 pip install -r requirements.txt
 ```
 
-### Ejecutar la Aplicación Web
+### Ejecutar Aplicación Web
 
 ```bash
-# Ejecutar aplicación interactiva
 streamlit run deployment/app.py
 ```
 
 La aplicación se abrirá automáticamente en `http://localhost:8501`
 
-### Ejecutar el Análisis Completo
+### Ejecutar Análisis Completo
 
 ```bash
-# Abrir Jupyter Notebook
 jupyter notebook notebooks/analisis_churn_bancario.ipynb
 ```
 
-## 📊 Características de la Aplicación
+## Características de la Aplicación
 
 ### Dashboard Interactivo
-- **Predicción en tiempo real** de probabilidad de churn
-- **Visualizaciones avanzadas** con gráficos interactivos
-- **Sistema de alertas** codificado por colores según riesgo
-- **Recomendaciones personalizadas** por nivel de riesgo
+- **Predicción en tiempo real** con algoritmo LightGBM optimizado
+- **Sistema de alertas** codificado por colores según nivel de riesgo
+- **Métricas de negocio** calculadas dinámicamente
+- **Interface futurista** con efectos visuales modernos
 
 ### Simulador Avanzado
-- **Análisis de sensibilidad** de variables
-- **Escenarios What-If** (optimista/pesimista)
-- **Proyección temporal** de riesgo a 12 meses
-- **Métricas de impacto empresarial** en tiempo real
+- **Análisis de sensibilidad** - Impacto de cada variable en la predicción
+- **Escenarios What-If** - Comparación optimista vs pesimista  
+- **Proyección temporal** - Evolución del riesgo a 12 meses
+- **Recomendaciones inteligentes** adaptadas por nivel de riesgo
 
-### Características Técnicas
-- **Algoritmo LightGBM optimizado** con GridSearchCV
-- **8+ factores de riesgo** analizados
-- **Interface futurista** con glassmorphism design
-- **Responsive design** adaptable a cualquier pantalla
+### Visualizaciones Interactivas
+- **Gauge dinámico** de probabilidad de churn
+- **Gráficos de impacto** por factor de riesgo
+- **Tendencias temporales** con y sin intervención
+- **Métricas empresariales** en tiempo real
 
-## 📈 Metodología
+## Metodología Técnica
 
-### 1. Análisis Exploratorio de Datos (EDA)
-- Análisis de distribuciones y correlaciones
-- Identificación de patrones de churn
-- Detección de valores atípicos y outliers
+### 1. Análisis Exploratorio (EDA)
+- Análisis de 10,000 registros de clientes bancarios
+- Identificación de patrones de comportamiento
+- Detección de correlaciones y outliers
+- Segmentación por variables demográficas y financieras
 
-### 2. Preprocesamiento
-- Limpieza y tratamiento de valores faltantes
-- Encoding de variables categóricas
-- Feature engineering avanzado
-- Escalado de características numéricas
+### 2. Preprocesamiento Avanzado
+- **Feature Engineering:** Creación de variables derivadas (ratios financieros, índices compuestos)
+- **Encoding:** LabelEncoder para variables categóricas
+- **Escalado:** StandardScaler para algoritmos sensibles a escala
+- **Validación:** División estratificada 70/30 entrenamiento/prueba
 
 ### 3. Modelado y Optimización
 - **Comparación de algoritmos:** LightGBM, Random Forest, SVM, KNN
-- **Optimización de hiperparámetros** con GridSearchCV
-- **Validación cruzada** estratificada
-- **Evaluación con métricas de negocio**
+- **Optimización de hiperparámetros:** GridSearchCV con validación cruzada 5-fold
+- **Métricas de evaluación:** AUC, Precisión, Recall, F1-Score
+- **Selección final:** LightGBM por mejor AUC (0.8791)
 
-### 4. Evaluación del Modelo
-- Métricas de clasificación completas
-- Curva ROC y análisis AUC
-- Matriz de confusión
-- Análisis de feature importance
+### 4. Validación y Interpretabilidad
+- **Análisis de feature importance** - Top 10 variables más predictivas
+- **Curva ROC** y análisis de umbral óptimo
+- **Matriz de confusión** detallada
+- **Análisis de casos límite** y falsos positivos/negativos
 
-## 💼 Impacto Empresarial
+## Impacto Empresarial
 
-### Problema Empresarial
-- **Tasa de churn actual:** 20.4%
-- **Costo de adquisición:** €200 por cliente
-- **Valor promedio de cliente:** €1,200 anuales
+### Contexto del Negocio
+- **Base de clientes:** 10,000 clientes analizados
+- **Tasa de churn actual:** 20.4% anual
+- **Clientes que abandonan:** 2,037 anuales
+- **Valor promedio por cliente:** €1,200 anuales
 
-### Solución Implementada
-- **Clientes detectados:** 986 de 2,037 (48.4% recall)
-- **Costo de retención:** €50 por cliente identificado
-- **Efectividad estimada:** 70% de clientes retenidos
+### Resultados del Modelo
+- **Clientes de alto riesgo identificados:** 199 (6.6%)
+- **Clientes de riesgo medio:** 290 (9.7%)
+- **Clientes de bajo riesgo:** 2,511 (83.7%)
+- **Tasa de detección:** 48.4% de abandonos predichos correctamente
 
-### Resultados Financieros
+### Impacto Financiero
 - **Ingresos salvados:** €1,183,200 anuales
-- **Costo de implementación:** €9,950 anuales
+- **Costo de campañas de retención:** €9,950 anuales  
 - **Beneficio neto:** €1,173,250 anuales
 - **ROI:** 11,791.5%
+- **Payback period:** < 1 mes
 
-## 📄 Licencia
+### Estrategias de Retención
+- **Alto riesgo (>70%):** Contacto inmediato, ofertas exclusivas, gestión personalizada
+- **Riesgo medio (40-70%):** Monitoreo estrecho, mejora de servicios, engagement proactivo  
+- **Bajo riesgo (<40%):** Mantenimiento, oportunidades de upselling, fidelización
+
+## Estructura Técnica de Archivos
+
+### Notebooks
+- **Análisis exploratorio** completo con visualizaciones
+- **Comparación de modelos** y métricas detalladas  
+- **Optimización de hiperparámetros** documentada
+- **Evaluación de negocio** con cálculos financieros
+
+### Modelos Guardados
+- **modelo_abandono_bancario_20250922.pkl** - LightGBM optimizado (178KB)
+- **escalador_caracteristicas_20250922.pkl** - StandardScaler ajustado (1.2KB)
+
+### Aplicación Web
+- **Interface moderna** con CSS personalizado y efectos visuales
+- **Lógica de predicción** integrada con modelos entrenados
+- **Simuladores interactivos** para análisis de escenarios
+- **Sistema de recomendaciones** automático por riesgo
+
+## Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 👨‍💻 Autor
+## Autor
 
 **Jonathan Ibáñez**
-- Data Scientist especializado en ML y DL aplicado a problemas empresariales
-- Email: jonathan_herraiz@yahoo.es
-- LinkedIn: [linkedin.com/in/jonathan-ibañez-33896a1b2](https://www.linkedin.com/in/jonathan-ibañez-33896a1b2)
-- GitHub: [github.com/Jona112345](https://github.com/Jona112345)
+- **Especialización:** Data Scientist enfocado en ML aplicado a problemas empresariales
+- **Email:** jonathan_herraiz@yahoo.es  
+- **LinkedIn:** [linkedin.com/in/jonathan-ibañez-33896a1b2](https://www.linkedin.com/in/jonathan-ibañez-33896a1b2)
+- **GitHub:** [github.com/Jona112345](https://github.com/Jona112345)
 
 ---
 
-⭐ **Si este proyecto te resulta útil, no olvides darle una estrella en GitHub!**
+**¿Te resulta útil este proyecto?** ⭐ ¡No olvides darle una estrella en GitHub para apoyar el desarrollo de más soluciones de Machine Learning aplicado a negocios!
